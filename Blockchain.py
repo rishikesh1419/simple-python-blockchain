@@ -12,12 +12,16 @@ class Blockchain:
         self.head = self.last_block = Block("Genesis block")
 
     def __str__(self) -> str:
+        string = ""
         temp = self.head
         while temp != None:
-            print("Data:", temp.data)
-            print("Hash:", temp.hash)
+            string = string + "Data: " + temp.data + "\n"
+            string = string + "Hash: " + temp.hash + "\n"
+            string = string + "Nonce: " + str(temp.nonce) + "\n"
+            # print("Hash:", temp.hash)
             # print("Next", temp.next)
             temp = temp.next
+        return string
 
     def add_block(self, block: Block) -> None:
         # print(block)
