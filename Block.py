@@ -37,12 +37,3 @@ class Block:
             + str(self.data).encode()
         )
         return hash.hexdigest()
-
-
-if __name__ == "__main__":
-
-    print("Testing")
-    b = Block("Newblock mfs")
-    print(b.get_hash())
-    print(b)
-    print("Lol")
