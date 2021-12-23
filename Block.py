@@ -5,7 +5,6 @@ import hashlib
 class Block:
     block_number = 0
     data = None
-    next = None
     hash = None
     nonce = 0
     prev_hash = None
@@ -37,3 +36,10 @@ class Block:
             + str(self.data).encode()
         )
         return hash.hexdigest()
+
+    def mine_block(self, difficulty: int, prefix: str) -> None:
+        hash = self.get_hash()
+        while hash[:difficulty] != prefix:
+            self.nonce = self.nonce + 1
+            hash = self.get_hash()
+        self.hash = hash
