@@ -3,15 +3,15 @@ import hashlib
 
 
 class Block:
-    block_number = 0
+    block_number: int = 0
     data: str = None
     hash: str = None
-    nonce = 0
-    prev_hash = None
-    timestamp = datetime.datetime.now()
+    nonce: int = 0
+    prev_hash: str = None
 
     def __init__(self, data) -> None:
         self.data = data
+        self.timestamp = datetime.datetime.now()
 
     def __str__(self) -> str:
         return (
@@ -20,6 +20,9 @@ class Block:
             + "\n"
             + "Hash: "
             + str(self.hash)
+            + "\n"
+            + "Prev Hash: "
+            + str(self.prev_hash)
             + "\n"
             + "Data: "
             + str(self.data)
