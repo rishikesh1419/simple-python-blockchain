@@ -4,8 +4,8 @@ import hashlib
 
 class Block:
     block_number = 0
-    data = None
-    hash = None
+    data: str = None
+    hash: str = None
     nonce = 0
     prev_hash = None
     timestamp = datetime.datetime.now()
