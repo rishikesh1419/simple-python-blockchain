@@ -1,16 +1,18 @@
 import datetime
 import hashlib
+from typing import List
+from Transaction import Transaction
 
 
 class Block:
     block_number: int = 0
-    data: str = None
+    transactions: List[Transaction] = []
     hash: str = None
     nonce: int = 0
     prev_hash: str = None
 
-    def __init__(self, data) -> None:
-        self.data = data
+    def __init__(self, transactions: List[Transaction]) -> None:
+        self.transactions = transactions
         self.timestamp = datetime.datetime.now()
 
     def __str__(self) -> str:
@@ -24,8 +26,8 @@ class Block:
             + "Prev Hash: "
             + str(self.prev_hash)
             + "\n"
-            + "Data: "
-            + str(self.data)
+            + "Transactions: "
+            + str(self.transactions)
             + "\n"
         )
 
@@ -36,7 +38,7 @@ class Block:
             + str(self.timestamp).encode()
             + str(self.prev_hash).encode()
             + str(self.nonce).encode()
-            + str(self.data).encode()
+            + str(self.transactions).encode()
         )
         return hash.hexdigest()
 

@@ -1,5 +1,6 @@
 from Block import *
 from Blockchain import *
+from Transaction import Transaction
 
 if __name__ == "__main__":
     blockchain = Blockchain()
